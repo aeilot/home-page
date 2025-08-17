@@ -1,0 +1,125 @@
+.credit {
+    font-size: 13px;
+    min-width: 25px;
+}
+
+.navigator {
+    &>.typingArea {
+        font-family: var(--font-mono);
+        display: flex;
+
+        &.ready {
+            color: var(--text-color-success);
+        }
+
+        &>input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            text-align: right;
+            padding: var(--spacing-lg);
+            padding-right: 0;
+            flex-grow: 1;
+            width: 100%;
+            font-size: 17px;
+            color: var(--text-color-secondary);
+
+            &:focus {
+                color: var(--text-color-primary);
+            }
+        }
+
+        &.ready>input {
+            color: var(--text-color-success);
+        }
+
+        &>span {
+            display: block;
+            padding: var(--spacing-lg);
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    &>.subdomains {
+        position: relative;
+        font-family: var(--font-mono);
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+
+        &>ul {
+            height: 240px;
+            overflow-y: auto;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            @mixin brighter {
+                color: var(--text-color-primary);
+            }
+
+            &>li {
+                &.active>a {
+                    background-color: var(--background-color-secondary);
+                }
+
+                &>a {
+                    padding: var(--spacing-md);
+                    padding-right: 0;
+                    padding-left: 0;
+                    text-decoration: none;
+                    color: var(--text-color-secondary);
+                    display: flex;
+                    justify-content: space-between;
+
+                    &:hover,
+                    &:focus-visible {
+                        @include brighter;
+                        background-color: var(--background-color-secondary);
+                    }
+
+                    &>.left {
+                        font-family: var(--font-sans);
+
+                        &>.title {
+                            @include brighter;
+
+                            font-weight: 500;
+                        }
+
+                        &>.description {
+                            font-size: 13px;
+                            font-weight: 300;
+                        }
+                    }
+
+                    &>.right {
+                        text-align: right;
+                        min-width: 240px;
+
+                        @media (max-width: 600px) {
+                            min-width: 100px;
+                        }
+
+                        &>.name {
+                            @include brighter;
+                        }
+
+                        &>.domainName {
+                            @media (max-width: 600px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

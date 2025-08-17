@@ -1,3 +1,7 @@
+:root {
+  ---accent-color: #008cff;
+}
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -28,9 +32,11 @@
 }
 
 .main {
+  max-width: 640px;
+  min-width: 65%;
+  margin: 36px auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
   grid-row-start: 2;
 }
 
@@ -54,6 +60,56 @@
   padding: 2px 4px;
   border-radius: 4px;
   font-weight: 600;
+}
+
+.hero {
+  text-align: left;
+  padding-top: 96px;
+  color: black;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.highlight {
+  color: var(---accent-color);
+}
+
+.dim {
+  opacity: 0.6;
+}
+
+.avatarImg {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid;
+  opacity: 0.1;
+  /* dim color */
+  margin-top: 30px;
+  /* spacing above and below */
 }
 
 .ctas {
@@ -95,6 +151,7 @@ a.secondary {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
+  font-size: 0.9rem;
 }
 
 .footer a {
@@ -105,6 +162,55 @@ a.secondary {
 
 .footer img {
   flex-shrink: 0;
+}
+
+.fade {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.socialSection {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialRow {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  padding-bottom: 6px;
+}
+
+.socialSectionTitle {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.socialRow i {
+  font-size: 1.5rem;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.socialRow i:hover {
+  opacity: 1;
+}
+
+.heart {
+  transition: color 0.3s;
+}
+
+.heart:hover {
+  color: red;
 }
 
 /* Enable hover only on non-touch devices */
@@ -132,11 +238,11 @@ a.secondary {
   }
 
   .main {
-    align-items: center;
+    /* align-items: center; */
   }
 
   .main ol {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .ctas {
@@ -160,8 +266,37 @@ a.secondary {
   }
 }
 
+.selfIntroSection {
+  margin: 3rem 0;
+}
+
+.selfIntroText {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .socialSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socialSection h2 {
+    width: 0;
+    visibility: hidden;
+    height: 0;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
   }
+
+  .hero {
+    color: white;
+  }
+
 }

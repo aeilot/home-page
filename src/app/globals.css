@@ -1,6 +1,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text-color-primary: #222;
+  --text-color-secondary: #585858;
+  --text-color-tertiary: #888;
+  --text-color-success: #008cff;
+  --text-color-disabled: #888;
+  --background-color-underlying: #fbfbfb;
+  --background-color-primary: #fff;
+  --background-color-secondary: #fafafa;
+  --background-color-tertiary: #f2f2f2;
+  --border-color-primary: #0001;
+  --border-dashed-default: 1px dashed var(--border-color-primary);
+
+  --spacing-3xs: 2px;
+  --spacing-2xs: 5px;
+  --spacing-xs: 9px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 28px;
+  --spacing-xl: 40px;
+
+  --radius-md: 5px;
+  --radius-full: 999px;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +53,12 @@ body {
   margin: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -38,5 +67,20 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+
+  :root {
+    --text-color-primary: #eee;
+    --text-color-secondary: #bbb;
+    --text-color-tertiary: #888;
+    --text-color-success: #008cff;
+    --text-color-disabled: #888;
+    --background-color-underlying: #000;
+    --background-color-primary: #080808;
+    --background-color-secondary: #101010;
+    --background-color-tertiary: #161616;
+    --border-color-primary: #fff1;
+
+
   }
 }
