@@ -1,4 +1,8 @@
 :root {
+  ---accent-color: #008cff;
+}
+
+:root {
   --background: #ffffff;
   --foreground: #171717;
   --text-color-primary: #222;
