@@ -21,6 +21,21 @@ const subdomains = [
     description: 'My live blog.',
   },
   {
+    title: 'Evolution Studio',
+    name: 'studio',
+    description: 'My studio & project page.',
+  },
+  {
+    title: 'How To Use Search Engines',
+    name: 'se-tips',
+    description: 'A tutorial to search engines.',
+  },
+  {
+    title: 'HSEFZ Club Yearbook',
+    name: 'hsefz',
+    description: 'The yearbook of No 2 High School of East China Normal University.',
+  },
+  {
     title: 'www',
     name: 'www',
     description: '(Same as `aeilot.top`)',
