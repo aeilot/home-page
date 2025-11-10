@@ -41,6 +41,11 @@ const subdomains = [
     description: 'The yearbook of No 2 High School of East China Normal University.',
   },
   {
+    title: 'Soul Link',
+    name: 'soullink',
+    description: 'Your personal AI emotional companion.',
+  },
+  {
     title: 'www',
     name: 'www',
     description: '(Same as `aeilot.top`)',
