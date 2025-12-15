@@ -11,7 +11,7 @@
 
 .snowflake {
   position: absolute;
-  top: -20px;
+  top: -10%;
   color: #fff;
   user-select: none;
   animation: fall linear infinite;

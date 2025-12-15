@@ -17,7 +17,7 @@ export default function Home() {
     if ((month === 11 && day >= 26) || (month === 0 && day <= 7)) {
       return [
         "Happy New Year",
-        "Happy 2026",
+        `Happy ${now.getFullYear()}`,
         "New Year's Greetings",
         "Cheers to the New Year",
       ];
@@ -53,14 +53,21 @@ export default function Home() {
       ];
     }
 
-    // Thanksgiving (4th Thursday of November, typically Nov 22-28)
-    if (month === 10 && day >= 22 && day <= 28) {
-      return [
-        "Happy Thanksgiving",
-        "Give Thanks",
-        "Thankful",
-        "Grateful Hearts",
-      ];
+    // Thanksgiving (4th Thursday of November)
+    if (month === 10) {
+      // Calculate 4th Thursday: Find first Thursday, then add 3 weeks
+      const firstDay = new Date(now.getFullYear(), 10, 1);
+      const firstThursday = 1 + ((4 - firstDay.getDay() + 7) % 7);
+      const fourthThursday = firstThursday + 21;
+      // Show greeting from 3 days before to 3 days after Thanksgiving
+      if (day >= fourthThursday - 3 && day <= fourthThursday + 3) {
+        return [
+          "Happy Thanksgiving",
+          "Give Thanks",
+          "Thankful",
+          "Grateful Hearts",
+        ];
+      }
     }
 
     // Christmas Season (December 1-25)
