@@ -5,11 +5,29 @@ import styles from './SnowEffect.module.css';
 
 export default function SnowEffect() {
   const [isDecember, setIsDecember] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const currentMonth = new Date().getMonth();
     // December is month 11 (0-indexed)
     setIsDecember(currentMonth === 11);
+
+    // Check if device is mobile
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+      return mobileRegex.test(userAgent.toLowerCase()) || window.innerWidth <= 768;
+    };
+
+    setIsMobile(checkMobile());
+
+    // Optional: listen to resize events to handle device rotation or window resize
+    const handleResize = () => {
+      setIsMobile(checkMobile());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Memoize snowflake properties so they don't change on every render
@@ -24,7 +42,8 @@ export default function SnowEffect() {
     }));
   }, []);
 
-  if (!isDecember) {
+  // Don't show snow effect on mobile devices
+  if (!isDecember || isMobile) {
     return null;
   }
 
