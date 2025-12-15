@@ -17,7 +17,7 @@ export default function SnowEffect() {
     return Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
-      animationDuration: `${Math.random() * 3 + 2}s`,
+      animationDuration: `${Math.random() * 5 + 5}s`,
       animationDelay: `${Math.random() * 5}s`,
       opacity: Math.random() * 0.6 + 0.4,
       fontSize: `${Math.random() * 10 + 10}px`,
