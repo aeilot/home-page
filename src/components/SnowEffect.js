@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import styles from './SnowEffect.module.css';
 
 export default function SnowEffect() {
   const [isDecember, setIsDecember] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const resizeTimeoutRef = useRef(null);
 
   // Check if device is mobile
   const checkMobile = useCallback(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = (navigator.userAgent || navigator.vendor || (typeof window !== 'undefined' && window.opera) || '').toLowerCase();
     const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-    return mobileRegex.test(userAgent.toLowerCase()) || window.innerWidth <= 768;
+    return mobileRegex.test(userAgent) || window.innerWidth <= 768;
   }, []);
 
   useEffect(() => {
@@ -22,17 +23,20 @@ export default function SnowEffect() {
     setIsMobile(checkMobile());
 
     // Debounced resize handler to improve performance
-    let resizeTimeout;
     const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(() => {
         setIsMobile(checkMobile());
       }, 150);
     };
 
     window.addEventListener('resize', handleResize);
     return () => {
-      clearTimeout(resizeTimeout);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
       window.removeEventListener('resize', handleResize);
     };
   }, [checkMobile]);
