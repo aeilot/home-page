@@ -4,29 +4,112 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useState, useEffect } from "react";
 import NavigatorSection from "@/components/NavigatorSection";
+import SnowEffect from "@/components/SnowEffect";
 
 export default function Home() {
-  const titles = [
-    "Hello, there", // English
-    "Bonjour",      // French
-    "Hola",         // Spanish
-    "Ciao",         // Italian
-    "Guten Tag",    // German
-    "Olá",          // Portuguese
-    "Привет",       // Russian
-    "你好",         // Chinese (Simplified)
-    "哈囉",         // Chinese (Traditional)
-    "こんにちは",     // Japanese
-    "안녕하세요",      // Korean
-    "مرحبا",         // Arabic
-    "שלום",          // Hebrew
-    "नमस्ते",        // Hindi
-    "Hej",          // Swedish
-    "Salve",        // Latin/Italian variant
-  ];
+  // Helper function to get festive greetings based on current date
+  const getFestiveGreetings = () => {
+    const now = new Date();
+    const month = now.getMonth(); // 0-indexed
+    const day = now.getDate();
+
+    // New Year (December 26 - January 7)
+    if ((month === 11 && day >= 26) || (month === 0 && day <= 7)) {
+      return [
+        "Happy New Year",
+        `Happy ${now.getFullYear()}`,
+        "New Year's Greetings",
+        "Cheers to the New Year",
+      ];
+    }
+
+    // Valentine's Day (February 10-14)
+    if (month === 1 && day >= 10 && day <= 14) {
+      return [
+        "Happy Valentine's Day",
+        "Love is in the air",
+        "Happy Hearts Day",
+        "Spread the Love",
+      ];
+    }
+
+    // Independence Day (July 1-4)
+    if (month === 6 && day >= 1 && day <= 4) {
+      return [
+        "Happy 4th of July",
+        "Independence Day",
+        "Happy Independence Day",
+        "Celebrate Freedom",
+      ];
+    }
+
+    // Halloween (October 25-31)
+    if (month === 9 && day >= 25 && day <= 31) {
+      return [
+        "Happy Halloween",
+        "Trick or Treat",
+        "Spooky Season",
+        "Boo!",
+      ];
+    }
+
+    // Thanksgiving (4th Thursday of November)
+    if (month === 10) {
+      // Calculate 4th Thursday: Find first Thursday, then add 3 weeks
+      const firstDay = new Date(now.getFullYear(), 10, 1);
+      const firstThursday = 1 + ((4 - firstDay.getDay() + 7) % 7);
+      const fourthThursday = firstThursday + 21;
+      // Show greeting from 3 days before to 3 days after Thanksgiving
+      if (day >= fourthThursday - 3 && day <= fourthThursday + 3) {
+        return [
+          "Happy Thanksgiving",
+          "Give Thanks",
+          "Thankful",
+          "Grateful Hearts",
+        ];
+      }
+    }
+
+    // Christmas Season (December 1-25)
+    if (month === 11 && day >= 1 && day <= 25) {
+      return [
+        "Merry Christmas",
+        "Happy Holidays",
+        "Season's Greetings",
+        "Joy to the World",
+      ];
+    }
+
+    // Default multilingual greetings
+    return [
+      "Hello, there", // English
+      "Bonjour",      // French
+      "Hola",         // Spanish
+      "Ciao",         // Italian
+      "Guten Tag",    // German
+      "Olá",          // Portuguese
+      "Привет",       // Russian
+      "你好",         // Chinese (Simplified)
+      "哈囉",         // Chinese (Traditional)
+      "こんにちは",     // Japanese
+      "안녕하세요",      // Korean
+      "مرحبا",         // Arabic
+      "שלום",          // Hebrew
+      "नमस्ते",        // Hindi
+      "Hej",          // Swedish
+      "Salve",        // Latin/Italian variant
+    ];
+  };
+
+  const [titles, setTitles] = useState([]);
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [aboutOpen, setAboutOpen] = useState(true);
+
+  // Initialize titles on mount
+  useEffect(() => {
+    setTitles(getFestiveGreetings());
+  }, []);
 
   const Bio = "HSEFZ '25, SJTU '29";
 
@@ -40,10 +123,11 @@ export default function Home() {
     }, 3000); // switch every 3s
 
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
 
   return (
     <div className={styles.page}>
+      <SnowEffect />
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
