@@ -1,34 +1,41 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import styles from './SnowEffect.module.css';
 
 export default function SnowEffect() {
   const [isDecember, setIsDecember] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Check if device is mobile
+  const checkMobile = useCallback(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+    return mobileRegex.test(userAgent.toLowerCase()) || window.innerWidth <= 768;
+  }, []);
+
   useEffect(() => {
     const currentMonth = new Date().getMonth();
     // December is month 11 (0-indexed)
     setIsDecember(currentMonth === 11);
 
-    // Check if device is mobile
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-      return mobileRegex.test(userAgent.toLowerCase()) || window.innerWidth <= 768;
-    };
-
     setIsMobile(checkMobile());
 
-    // Optional: listen to resize events to handle device rotation or window resize
+    // Debounced resize handler to improve performance
+    let resizeTimeout;
     const handleResize = () => {
-      setIsMobile(checkMobile());
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        setIsMobile(checkMobile());
+      }, 150);
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => {
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [checkMobile]);
 
   // Memoize snowflake properties so they don't change on every render
   const snowflakes = useMemo(() => {
