@@ -51,6 +51,7 @@ All image URLs are automatically resolved to absolute URLs using the `metadataBa
 To customize the metadata for production:
 
 1. Update the `metadataBase` URL if deploying to a custom domain
+   - For environment-based configuration, you can use: `metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://aeilot.github.io')`
 2. Modify title, description, and other text fields as needed
 3. Replace `/avatar.png` with a custom Open Graph image (recommended size: 1200x630 for optimal social sharing)
 
