@@ -176,33 +176,29 @@ export default function Home() {
             {aboutOpen ? 'Close' : 'About'}
           </a>
         </div> */}
-          {aboutOpen && (
-        <section className={styles.selfIntroSection}>
-          <p className={styles.selfIntroText}>
-            <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>student and indie developer<span className={styles.dim}> passionate about</span> technology, literature, music, <span className={styles.dim}>and</span> traveling.
-          </p>
-          <p className={styles.selfIntroText}>
-            <span className={styles.dim}>I have experience with </span>iOS and macOS development using Swift and SwiftUI, Android development,<span className={styles.dim}> as well as</span> Java, Python, Django, PyTorch, C++, C, <span className={styles.dim}>and</span> Linux.
-          </p>
-          <p className={styles.selfIntroText}>
-            <span className={styles.dim}>I graduated from</span> No. 2 High School of East China Normal University in 2025<span className={styles.dim}> and am currently studying at</span> Shanghai Jiao Tong University, Artificial Intelligence Major, class of 2029.
-          </p>
-          <p className={styles.selfIntroText}>
-            <span className={styles.dim}>I’m fluent in </span>Chinese and English (TOEFL 114)<span className={styles.dim}>, which allows me to work in diverse environments and communicate effectively. And I'm currently learning </span>Spanish.
-          </p>
-          <p className={styles.selfIntroText}>
-            <span className={styles.dim}>I love exploring new ideas, building creative projects, and traveling to experience different cultures. When I’m not coding, you can usually find me reading, playing guitar, or discovering hidden spots in the city.</span>
-          </p>
-          <p className={styles.selfIntroText}>
-          <span className={styles.dim}>I’m always curious and eager to learn, and I enjoy connecting with people who share similar interests.</span>
-          </p>
-        </section>
-          )}
-        
+        {aboutOpen && (
+          <section className={styles.selfIntroSection}>
+            <p className={styles.selfIntroText}>
+              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, an </span>Artificial Intelligence student and indie developer<span className={styles.dim}> fascinated by the intersection of </span>technology, literature, <span className={styles.dim}>and</span> creative expression.
+            </p>
+            <p className={styles.selfIntroText}>
+              <span className={styles.dim}>My technical focus includes </span>iOS and macOS development (Swift/SwiftUI)<span className={styles.dim}> and </span>Android ecosystems.<span className={styles.dim}> I also engineer solutions using </span>Python (Django, PyTorch), C++, C, <span className={styles.dim}>and</span> Linux environments.
+            </p>
+            <p className={styles.selfIntroText}>
+              <span className={styles.dim}>Currently, I am an undergraduate at </span>Shanghai Jiao Tong University (Class of 2029)<span className={styles.dim}> majoring in </span>Artificial Intelligence,<span className={styles.dim}> following my graduation from </span>No. 2 High School of East China Normal University.
+            </p>
+            <p className={styles.selfIntroText}>
+              <span className={styles.dim}>I bridge cultures with native </span>Chinese<span className={styles.dim}> and professional </span>English (TOEFL 114)<span className={styles.dim}>, and I am currently expanding my linguistic toolkit with </span>Spanish.
+            </p>
+            <p className={styles.selfIntroText}>
+              <span className={styles.dim}>Beyond code, I am an avid traveler and learner. You'll often find me </span>reading, playing the guitar, <span className={styles.dim}>or </span>exploring the city's hidden corners<span className={styles.dim}> seeking new inspiration.</span>
+            </p>
+          </section>
+        )}
       </main>
       <footer className={styles.footer}>
         <p className={styles.dim}>
-          Made with <span className={styles.heart}>♥</span> by Louis Deng.
+          Made with <span className={styles.heart}>♥</span> by Louis Deng. 2015 till now.
         </p>
       </footer>
     </div>
