@@ -6,6 +6,7 @@ import styles from './SnowEffect.module.css';
 export default function SnowEffect() {
   const [isDecember, setIsDecember] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const resizeTimeoutRef = useRef(null);
 
   // Check if device is mobile
@@ -22,6 +23,14 @@ export default function SnowEffect() {
 
     setIsMobile(checkMobile());
 
+    // Check if dark mode is enabled
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(darkModeQuery.matches);
+
+    const handleDarkModeChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+
     // Debounced resize handler to improve performance
     const handleResize = () => {
       if (resizeTimeoutRef.current) {
@@ -32,8 +41,10 @@ export default function SnowEffect() {
       }, 150);
     };
 
+    darkModeQuery.addEventListener('change', handleDarkModeChange);
     window.addEventListener('resize', handleResize);
     return () => {
+      darkModeQuery.removeEventListener('change', handleDarkModeChange);
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current);
       }
@@ -53,8 +64,8 @@ export default function SnowEffect() {
     }));
   }, []);
 
-  // Don't show snow effect on mobile devices
-  if (!isDecember || isMobile) {
+  // Don't show snow effect on mobile devices or in light mode
+  if (!isDecember || isMobile || !isDarkMode) {
     return null;
   }
 
