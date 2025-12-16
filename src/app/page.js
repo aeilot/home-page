@@ -2,11 +2,32 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import NavigatorSection from "@/components/NavigatorSection";
 import SnowEffect from "@/components/SnowEffect";
 
 export default function Home() {
+  // Helper function to calculate dynamic font size based on character count
+  const calculateFontSize = useCallback((text) => {
+    if (!text) return "3rem"; // default size
+    
+    const charCount = text.trim().length;
+    
+    // Check if mobile (viewport width <= 600px)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
+    
+    // Dynamic font sizing based on character count
+    if (charCount <= 10) {
+      return isMobile ? "2.5rem" : "4rem"; // Extra large for short text (e.g., "Boo!", "Ciao")
+    } else if (charCount <= 20) {
+      return isMobile ? "2rem" : "3rem"; // Large for medium text (e.g., "Happy New Year")
+    } else if (charCount <= 35) {
+      return isMobile ? "1.75rem" : "2.25rem"; // Medium for longer text
+    } else {
+      return isMobile ? "1.5rem" : "1.75rem"; // Smaller for very long text
+    }
+  }, []);
+
   // Helper function to get festive greetings based on current date
   const getFestiveGreetings = () => {
     const now = new Date();
@@ -105,6 +126,7 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [aboutOpen, setAboutOpen] = useState(true);
+  const [fontSize, setFontSize] = useState("3rem");
 
   // Initialize titles on mount
   useEffect(() => {
@@ -125,6 +147,32 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [titles.length]);
 
+  // Update font size when title changes
+  useEffect(() => {
+    if (titles.length > 0 && titles[index]) {
+      setFontSize(calculateFontSize(titles[index]));
+    }
+  }, [index, titles, calculateFontSize]);
+
+  // Update font size on window resize for responsiveness with debouncing
+  useEffect(() => {
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (titles.length > 0 && titles[index]) {
+          setFontSize(calculateFontSize(titles[index]));
+        }
+      }, 150); // Debounce resize events by 150ms
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [index, titles, calculateFontSize]);
+
   return (
     <div className={styles.page}>
       <SnowEffect />
@@ -132,7 +180,7 @@ export default function Home() {
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <div className={styles.textBlock}>
-              <h1>
+              <h1 style={{ fontSize }}>
                 <span className={`${styles.fade} ${fade ? styles.fadeIn : styles.fadeOut}`}>
                   {titles[index]}<span className={styles.highlight}>.</span>
                 </span>
