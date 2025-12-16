@@ -7,24 +7,24 @@ import NavigatorSection from "@/components/NavigatorSection";
 import SnowEffect from "@/components/SnowEffect";
 
 export default function Home() {
-  // Helper function to calculate dynamic font size based on word count
+  // Helper function to calculate dynamic font size based on character count
   const calculateFontSize = useCallback((text) => {
     if (!text) return "3rem"; // default size
     
-    const wordCount = text.trim().split(/\s+/).length;
+    const charCount = text.trim().length;
     
     // Check if mobile (viewport width <= 600px)
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
     
-    // Dynamic font sizing based on word count
-    if (wordCount <= 2) {
-      return isMobile ? "2.5rem" : "4rem"; // Extra large for 1-2 words
-    } else if (wordCount <= 5) {
-      return isMobile ? "2rem" : "3rem"; // Large for 3-5 words
-    } else if (wordCount <= 10) {
-      return isMobile ? "1.75rem" : "2.25rem"; // Medium for 6-10 words
+    // Dynamic font sizing based on character count
+    if (charCount <= 10) {
+      return isMobile ? "2.5rem" : "4rem"; // Extra large for short text (e.g., "Boo!", "Ciao")
+    } else if (charCount <= 20) {
+      return isMobile ? "2rem" : "3rem"; // Large for medium text (e.g., "Happy New Year")
+    } else if (charCount <= 35) {
+      return isMobile ? "1.75rem" : "2.25rem"; // Medium for longer text
     } else {
-      return isMobile ? "1.5rem" : "1.75rem"; // Smaller for 11+ words
+      return isMobile ? "1.5rem" : "1.75rem"; // Smaller for very long text
     }
   }, []);
 
