@@ -7,6 +7,27 @@ import NavigatorSection from "@/components/NavigatorSection";
 import SnowEffect from "@/components/SnowEffect";
 
 export default function Home() {
+  // Helper function to calculate dynamic font size based on word count
+  const calculateFontSize = (text) => {
+    if (!text) return "3rem"; // default size
+    
+    const wordCount = text.trim().split(/\s+/).length;
+    
+    // Check if mobile (viewport width <= 600px)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
+    
+    // Dynamic font sizing based on word count
+    if (wordCount <= 2) {
+      return isMobile ? "2.5rem" : "4rem"; // Extra large for 1-2 words
+    } else if (wordCount <= 5) {
+      return isMobile ? "2rem" : "3rem"; // Large for 3-5 words
+    } else if (wordCount <= 10) {
+      return isMobile ? "1.75rem" : "2.25rem"; // Medium for 6-10 words
+    } else {
+      return isMobile ? "1.5rem" : "1.75rem"; // Smaller for 11+ words
+    }
+  };
+
   // Helper function to get festive greetings based on current date
   const getFestiveGreetings = () => {
     const now = new Date();
@@ -105,6 +126,7 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [aboutOpen, setAboutOpen] = useState(true);
+  const [fontSize, setFontSize] = useState("3rem");
 
   // Initialize titles on mount
   useEffect(() => {
@@ -125,6 +147,25 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [titles.length]);
 
+  // Update font size when title changes
+  useEffect(() => {
+    if (titles.length > 0 && titles[index]) {
+      setFontSize(calculateFontSize(titles[index]));
+    }
+  }, [index, titles]);
+
+  // Update font size on window resize for responsiveness
+  useEffect(() => {
+    const handleResize = () => {
+      if (titles.length > 0 && titles[index]) {
+        setFontSize(calculateFontSize(titles[index]));
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [index, titles]);
+
   return (
     <div className={styles.page}>
       <SnowEffect />
@@ -132,7 +173,7 @@ export default function Home() {
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <div className={styles.textBlock}>
-              <h1>
+              <h1 style={{ fontSize }}>
                 <span className={`${styles.fade} ${fade ? styles.fadeIn : styles.fadeOut}`}>
                   {titles[index]}<span className={styles.highlight}>.</span>
                 </span>
