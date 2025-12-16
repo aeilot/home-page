@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import NavigatorSection from "@/components/NavigatorSection";
 import SnowEffect from "@/components/SnowEffect";
 
 export default function Home() {
   // Helper function to calculate dynamic font size based on word count
-  const calculateFontSize = (text) => {
+  const calculateFontSize = useCallback((text) => {
     if (!text) return "3rem"; // default size
     
     const wordCount = text.trim().split(/\s+/).length;
@@ -26,7 +26,7 @@ export default function Home() {
     } else {
       return isMobile ? "1.5rem" : "1.75rem"; // Smaller for 11+ words
     }
-  };
+  }, []);
 
   // Helper function to get festive greetings based on current date
   const getFestiveGreetings = () => {
@@ -152,19 +152,26 @@ export default function Home() {
     if (titles.length > 0 && titles[index]) {
       setFontSize(calculateFontSize(titles[index]));
     }
-  }, [index, titles]);
+  }, [index, titles, calculateFontSize]);
 
-  // Update font size on window resize for responsiveness
+  // Update font size on window resize for responsiveness with debouncing
   useEffect(() => {
+    let resizeTimer;
     const handleResize = () => {
-      if (titles.length > 0 && titles[index]) {
-        setFontSize(calculateFontSize(titles[index]));
-      }
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (titles.length > 0 && titles[index]) {
+          setFontSize(calculateFontSize(titles[index]));
+        }
+      }, 150); // Debounce resize events by 150ms
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [index, titles]);
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [index, titles, calculateFontSize]);
 
   return (
     <div className={styles.page}>
