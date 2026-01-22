@@ -160,7 +160,7 @@ export default function Home() {
             <a href="https://github.com/aeilot" target="_blank" rel="noopener noreferrer">
               <i className="ri-github-line"></i>
             </a>
-            <a href="https://www.linkedin.com/in/chenluo-deng-85b37a33a/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" target="_blank" rel="noopener noreferrer">
               <i className="ri-linkedin-line"></i>
             </a>
             <a href="https://www.instagram.com/aeilotd/" target="_blank" rel="noopener noreferrer">
