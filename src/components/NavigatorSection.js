@@ -8,12 +8,7 @@ const subdomains = [
   {
     title: 'Blog',
     name: 'blog',
-    description: 'My blog in Chinese.',
-  },
-  {
-    title: 'English Blog',
-    name: 'en',
-    description: 'My blog in English.',
+    description: 'My blog.',
   },
   {
     title: 'Xlog Blog',
