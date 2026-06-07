@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# home-page
+
+Personal landing page for **Louis Deng** (`aeilot`) — student & indie developer.
+
+Live at [aeilot.top](https://aeilot.top) / [aeilot.github.io](https://aeilot.github.io).
+
+Built with [Next.js](https://nextjs.org) (App Router) and React 19.
+
+## Features
+
+- **Animated greeting hero** — cycles through multilingual greetings, with festive messages that change based on the date (New Year, Valentine's Day, Independence Day, Halloween, Thanksgiving, Christmas).
+- **Snow effect** — falling snowflakes shown during December, on desktop, in dark mode only.
+- **Subdomain navigator** — a searchable launcher that jumps to `*.aeilot.top` subdomains (blog, studio, etc.).
+- **Social links** — email, Telegram, GitHub, LinkedIn, and Instagram.
+- **SEO & social sharing** — Open Graph and Twitter Card metadata via the Next.js Metadata API (see [`METADATA.md`](./METADATA.md)).
+
+## Tech Stack
+
+- [Next.js 15](https://nextjs.org) with the App Router and Turbopack
+- [React 19](https://react.dev)
+- CSS Modules + [Sass](https://sass-lang.com) (`.scss`)
+- [Remix Icon](https://remixicon.com) for social icons
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies (this project uses [pnpm](https://pnpm.io)):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the page. It auto-updates as you edit files.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the dev server with Turbopack |
+| `pnpm build` | Create a production build |
+| `pnpm start` | Run the production server |
+| `pnpm lint` | Run ESLint |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── layout.js          # Root layout + site metadata (Open Graph, Twitter)
+│   ├── page.js            # Home page (hero, greetings, social, navigator, bio)
+│   ├── globals.css        # Global styles
+│   └── page.module.css    # Home page styles
+└── components/
+    ├── NavigatorSection.js # Searchable subdomain launcher
+    └── SnowEffect.js       # December dark-mode snowfall
+```
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Greetings & festive messages** — edit `getFestiveGreetings()` in `src/app/page.js`.
+- **Subdomain links** — edit the `subdomains` array in `src/components/NavigatorSection.js`.
+- **Metadata / SEO** — edit the `metadata` export in `src/app/layout.js`. Update `metadataBase` when deploying to a custom domain. See [`METADATA.md`](./METADATA.md) for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+Personal project © Louis Deng. All rights reserved.
