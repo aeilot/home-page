@@ -11,6 +11,11 @@ const subdomains = [
     description: 'My blog.',
   },
   {
+    title: '文集 Wenji',
+    name: 'wenji',
+    description: 'My Chinese blog.',
+  },
+  {
     title: 'Xlog Blog',
     name: 'xlog',
     description: 'My blog running on the blockchain.',
