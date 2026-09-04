@@ -154,9 +154,6 @@ export default function Home() {
             <a href="mailto:louisaeilotd@gmail.com" target="_blank" rel="noopener noreferrer">
               <i className="ri-mail-line"></i>
             </a>
-            <a href="https://t.me/aeilotd" target="_blank" rel="noopener noreferrer">
-              <i className="ri-telegram-line"></i>
-            </a>
             <a href="https://github.com/aeilot" target="_blank" rel="noopener noreferrer">
               <i className="ri-github-line"></i>
             </a>
