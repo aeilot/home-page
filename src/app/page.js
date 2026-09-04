@@ -112,7 +112,7 @@ export default function Home() {
     setTitles(getFestiveGreetings());
   }, []);
 
-  const Bio = "HSEFZ '25, UW Madison '29";
+  const Bio = "HSEFZ '25, SJTU '29";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -179,13 +179,13 @@ export default function Home() {
         {aboutOpen && (
           <section className={styles.selfIntroSection}>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>Computer Science student and indie developer<span className={styles.dim}> fascinated by the intersection of </span>technology, literature, <span className={styles.dim}>and</span> creative expression.
+              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, an </span>Artificial Intelligence student and indie developer<span className={styles.dim}> fascinated by the intersection of </span>technology, literature, <span className={styles.dim}>and</span> creative expression.
             </p>
             <p className={styles.selfIntroText}>
               <span className={styles.dim}>My technical focus includes </span>iOS and macOS development (Swift/SwiftUI)<span className={styles.dim}> and </span>Android ecosystems.<span className={styles.dim}> I also engineer solutions using </span>Python (Django, PyTorch), C++, C, <span className={styles.dim}>and</span> Linux environments.
             </p>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Currently, I am an undergraduate at </span>the University of Wisconsin–Madison (Class of 2029)<span className={styles.dim}> majoring in </span>Computer Science,<span className={styles.dim}> following my graduation from </span>No. 2 High School of East China Normal University.
+              <span className={styles.dim}>Currently, I am an undergraduate at </span>Shanghai Jiao Tong University (Class of 2029)<span className={styles.dim}> majoring in </span>Artificial Intelligence,<span className={styles.dim}> following my graduation from </span>No. 2 High School of East China Normal University.
             </p>
             <p className={styles.selfIntroText}>
               <span className={styles.dim}>I bridge cultures with native </span>Chinese<span className={styles.dim}> and professional </span>English (TOEFL 114)<span className={styles.dim}>, and I am currently expanding my linguistic toolkit with </span>Spanish.

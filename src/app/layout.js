@@ -9,8 +9,8 @@ import "./globals.css";
 
 export const metadata = {
   title: "Louis Deng - Student & Indie Developer",
-  description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, UW Madison '29. Experienced in iOS, macOS, Android development, and AI.",
-  keywords: ["Louis Deng", "Developer", "UW Madison", "AI", "iOS Development", "Software Engineer", "Student"],
+  description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, SJTU '29. Experienced in iOS, macOS, Android development, and AI.",
+  keywords: ["Louis Deng", "Developer", "SJTU", "AI", "iOS Development", "Software Engineer", "Student"],
   authors: [{ name: "Louis Deng" }],
   creator: "Louis Deng",
   metadataBase: new URL('https://aeilot.github.io'),
@@ -18,7 +18,7 @@ export const metadata = {
   // Open Graph
   openGraph: {
     title: "Louis Deng - Student & Indie Developer",
-    description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, UW Madison '29.",
+    description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, SJTU '29.",
     url: 'https://aeilot.github.io',
     siteName: "Louis Deng",
     images: [
@@ -37,7 +37,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Louis Deng - Student & Indie Developer",
-    description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, UW Madison '29.",
+    description: "Student and indie developer passionate about technology, literature, music, and traveling. HSEFZ '25, SJTU '29.",
     creator: '@aeilotd',
     images: ['/avatar.png'],
   },
