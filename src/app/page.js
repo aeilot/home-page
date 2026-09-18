@@ -112,7 +112,7 @@ export default function Home() {
     setTitles(getFestiveGreetings());
   }, []);
 
-  const Bio = "HSEFZ '25, UW Madison '29";
+  const Bio = "UW–Madison '29";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -183,9 +183,6 @@ export default function Home() {
             </p>
             <p className={styles.selfIntroText}>
               <span className={styles.dim}>My work spans </span>iOS and macOS apps (Swift/SwiftUI)<span className={styles.dim}>, </span>web products<span className={styles.dim}>, and </span>Android<span className={styles.dim}>. Alongside app development, I'm exploring </span>GPU programming with CUDA C and Triton<span className={styles.dim}>. Explore my projects at </span><a className={styles.selfIntroLink} href="https://studio.aeilot.top/">Evolution Studio</a>.
-            </p>
-            <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Before UW–Madison, I graduated from </span>No. 2 High School of East China Normal University<span className={styles.dim}> in 2025.</span>
             </p>
             <p className={styles.selfIntroText}>
               <span className={styles.dim}>I write in </span>Chinese<span className={styles.dim}> and </span>English<span className={styles.dim}>, and I'm learning </span>French.
