@@ -160,6 +160,9 @@ export default function Home() {
             <a href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" target="_blank" rel="noopener noreferrer">
               <i className="ri-linkedin-line"></i>
             </a>
+            <a href="https://x.com/aeilot" target="_blank" rel="noopener noreferrer">
+              <i className="ri-twitter-x-line"></i>
+            </a>
             <a href="https://www.instagram.com/aeilotd/" target="_blank" rel="noopener noreferrer">
               <i className="ri-instagram-line"></i>
             </a>

@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link
-          href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.9.1/fonts/remixicon.css"
           rel="stylesheet"
         />
       </head>
