@@ -287,6 +287,11 @@ a.secondary {
     margin-bottom: 0.8rem;
 }
 
+.selfIntroLink {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
 @media (max-width: 800px) {
     .socialSection {
         display: flex;

@@ -179,19 +179,19 @@ export default function Home() {
         {aboutOpen && (
           <section className={styles.selfIntroSection}>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>Computer Science student and indie developer<span className={styles.dim}> fascinated by the intersection of </span>technology, literature, <span className={styles.dim}>and</span> creative expression.
+              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>Computer Science student at UW–Madison<span className={styles.dim}> and an </span>indie developer<span className={styles.dim}>. I build tools for </span>reading, learning, and everyday life<span className={styles.dim}>, and I'm exploring </span>AI Infra and MLSys Research.
             </p>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>My technical focus includes </span>iOS and macOS development (Swift/SwiftUI)<span className={styles.dim}> and </span>Android ecosystems.<span className={styles.dim}> I also engineer solutions using </span>Python (Django, PyTorch), C++, C, <span className={styles.dim}>and</span> Linux environments.
+              <span className={styles.dim}>My work spans </span>iOS and macOS apps (Swift/SwiftUI)<span className={styles.dim}>, </span>web products<span className={styles.dim}>, and </span>Android<span className={styles.dim}>. Alongside app development, I'm exploring </span>GPU programming with CUDA C and Triton<span className={styles.dim}>. Explore my projects at </span><a className={styles.selfIntroLink} href="https://studio.aeilot.top/">Evolution Studio</a>.
             </p>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Currently, I am an undergraduate at </span>UW Madison (Class of 2029)<span className={styles.dim}> majoring in </span>Computer Science,<span className={styles.dim}> following my graduation from </span>No. 2 High School of East China Normal University.
+              <span className={styles.dim}>Before UW–Madison, I graduated from </span>No. 2 High School of East China Normal University<span className={styles.dim}> in 2025.</span>
             </p>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>I bridge cultures with native </span>Chinese<span className={styles.dim}> and professional </span>English (TOEFL 114)<span className={styles.dim}>, and I am currently expanding my linguistic toolkit with </span>Spanish.
+              <span className={styles.dim}>I write in </span>Chinese<span className={styles.dim}> and </span>English<span className={styles.dim}>, and I'm learning </span>French.
             </p>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Beyond code, I am an avid traveler and learner. You'll often find me </span>reading, playing the guitar, <span className={styles.dim}>or </span>exploring the city's hidden corners<span className={styles.dim}> seeking new inspiration.</span>
+              <span className={styles.dim}>Beyond code, I enjoy </span>reading, playing guitar, <span className={styles.dim}>and </span>exploring new places<span className={styles.dim}>. I also share my writing on my </span><a className={styles.selfIntroLink} href="https://blog.aeilot.top/">blog</a>.
             </p>
           </section>
         )}
