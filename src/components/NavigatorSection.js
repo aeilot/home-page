@@ -50,11 +50,6 @@ const subdomains = [
     name: 'soullink',
     description: 'Your personal AI emotional companion.',
   },
-  {
-    title: 'www',
-    name: 'www',
-    description: '(Same as `aeilot.top`)',
-  },
 ]
 
 export default function NavigatorSection() {

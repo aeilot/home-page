@@ -15,6 +15,7 @@ Open Graph metadata has been added to improve SEO and social media sharing. The 
 - `authors` - Page author information
 - `creator` - Content creator
 - `metadataBase` - Base URL for resolving relative URLs to absolute URLs
+- `alternates.canonical` - Homepage canonical URL: `https://aeilot.top/`
 
 ### Open Graph Tags
 - `og:title` - Title for social sharing
@@ -43,15 +44,15 @@ Open Graph metadata has been added to improve SEO and social media sharing. The 
 ## Image URLs
 
 All image URLs are automatically resolved to absolute URLs using the `metadataBase` configuration:
-- Base URL: `https://aeilot.github.io`
-- Avatar image: `/avatar.png` → `https://aeilot.github.io/avatar.png`
+- Base URL: `https://aeilot.top`
+- Avatar image: `/avatar.png` → `https://aeilot.top/avatar.png`
 
 ## Customization
 
 To customize the metadata for production:
 
 1. Update the `metadataBase` URL if deploying to a custom domain
-   - For environment-based configuration, you can use: `metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://aeilot.github.io')`
+   - For environment-based configuration, you can use: `metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://aeilot.top')`
 2. Modify title, description, and other text fields as needed
 3. Replace `/avatar.png` with a custom Open Graph image (recommended size: 1200x630 for optimal social sharing)
 
@@ -67,3 +68,10 @@ You can validate the Open Graph tags using:
 This implementation follows Next.js 13+ best practices by using the metadata export pattern. Next.js automatically generates the appropriate HTML meta tags from this object.
 
 Learn more: [Next.js Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata)
+
+## Crawling and retired URLs
+
+- `public/robots.txt` allows crawling and points to `https://aeilot.top/sitemap.xml`.
+- `public/sitemap.xml` lists only the canonical homepage.
+- `/index-cn.html` returns HTTP 410 because there is no equivalent Chinese homepage. If a replacement is published, replace this response with a 301 redirect to its canonical URL.
+- Keep the retired URL crawlable so search engines can observe its 410 status.
