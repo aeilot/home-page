@@ -11,7 +11,7 @@ Built with [Next.js](https://nextjs.org) (App Router) and React 19.
 - **Animated greeting hero** — cycles through multilingual greetings, with festive messages that change based on the date (New Year, Valentine's Day, Independence Day, Halloween, Thanksgiving, Christmas).
 - **Snow effect** — falling snowflakes shown during December, on desktop, in dark mode only.
 - **Subdomain navigator** — a searchable launcher that jumps to `*.aeilot.top` subdomains (blog, studio, etc.).
-- **Social links** — email, Telegram, GitHub, LinkedIn, and Instagram.
+- **Social links** — email, Telegram, GitHub, and Instagram.
 - **SEO & social sharing** — Open Graph and Twitter Card metadata via the Next.js Metadata API (see [`METADATA.md`](./METADATA.md)).
 
 ## Tech Stack

@@ -112,7 +112,7 @@ export default function Home() {
     setTitles(getFestiveGreetings());
   }, []);
 
-  const Bio = "UW–Madison '29";
+  const Bio = "Stay Hungry, Stay Foolish";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -157,9 +157,6 @@ export default function Home() {
             <a href="https://github.com/aeilot" target="_blank" rel="noopener noreferrer">
               <i className="ri-github-line"></i>
             </a>
-            <a href="https://www.linkedin.com/in/chenluo-d-85b37a33a/" target="_blank" rel="noopener noreferrer">
-              <i className="ri-linkedin-line"></i>
-            </a>
             <a href="https://x.com/aeilot" target="_blank" rel="noopener noreferrer">
               <i className="ri-twitter-x-line"></i>
             </a>
@@ -179,7 +176,7 @@ export default function Home() {
         {aboutOpen && (
           <section className={styles.selfIntroSection}>
             <p className={styles.selfIntroText}>
-              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>Computer Science student at UW–Madison<span className={styles.dim}> and an </span>indie developer<span className={styles.dim}>. I build tools for </span>reading, learning, and everyday life<span className={styles.dim}>, and I'm exploring </span>AI Infra and MLSys Research.
+              <span className={styles.dim}>Hi! I'm </span>Louis Deng<span className={styles.dim}>, a </span>Computer Science student<span className={styles.dim}> and an </span>indie developer<span className={styles.dim}>. I build tools for </span>reading, learning, and everyday life<span className={styles.dim}>, and I'm exploring </span>AI Infra and MLSys Research.
             </p>
             <p className={styles.selfIntroText}>
               <span className={styles.dim}>My work spans </span>iOS and macOS apps (Swift/SwiftUI)<span className={styles.dim}>, </span>web products<span className={styles.dim}>, and </span>Android<span className={styles.dim}>. Alongside app development, I'm exploring </span>GPU programming with CUDA C and Triton<span className={styles.dim}>. Explore my projects at </span><a className={styles.selfIntroLink} href="https://studio.aeilot.top/">Evolution Studio</a>.
